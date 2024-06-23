@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout:
+spring:
+  application:
+    name: AdMonitor
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/adMonitor
+    username: root
+    password: p@ssw0rd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    root: info
+site:
+  settings:
+    domain: localhost
+    port: 3000
