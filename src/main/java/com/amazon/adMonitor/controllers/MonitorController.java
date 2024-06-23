@@ -5,12 +5,13 @@ import com.amazon.adMonitor.models.Advertising;
 import com.amazon.adMonitor.services.AdvertisingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/monitor")
+@RequestMapping("/ad-monitor-api")
 public class MonitorController {
     private final AdvertisingService advertisingService;
 
@@ -18,13 +19,18 @@ public class MonitorController {
         this.advertisingService = advertisingService;
     }
 
-    @GetMapping("/findAll")
-    public List<Advertising> findAllAdvertising(){
+    @GetMapping("/findAllAds")
+    public List<Advertising> findAllAdvertising() {
         return advertisingService.findAll();
     }
 
-    @GetMapping("/findAllDTO")
+    @GetMapping("/findAllAdDTOs")
     public List<AdvertisingDTO> findAllAdvertisingDTO(){
         return advertisingService.findAllDTO();
+    }
+
+    @GetMapping("/findAdById")
+    public Advertising findAdById(@RequestParam(name = "id") int id){
+        return advertisingService.findById(id);
     }
 }

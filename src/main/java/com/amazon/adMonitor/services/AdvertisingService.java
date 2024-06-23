@@ -27,6 +27,10 @@ public class AdvertisingService {
         return advertisingRepository.findAll().stream().map(this::convertAdToAdDTO).toList();
     }
 
+    public Advertising findById (int id) {
+        return advertisingRepository.findById(id).orElse(null);
+    }
+
     public AdvertisingDTO convertAdToAdDTO(Advertising advertising) {
         return modelMapper.map(advertising, AdvertisingDTO.class);
     }

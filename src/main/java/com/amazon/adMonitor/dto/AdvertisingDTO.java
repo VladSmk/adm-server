@@ -10,14 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdvertisingDTO {
+    private int id;
     private String title;
     private String description;
     private Date createdAt;
     private String picturePath;
-
-    private int impressions;
-    private int clicks;
-    private int CTR;
-    private int conversions;
 }
 
